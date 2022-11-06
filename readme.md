@@ -1,6 +1,6 @@
 # BloggerBin
 
-Free anonymous pastebin service built upon Google's Blogger using Blogger API V3
+Anonymous self hosted pastebin like service built upon Google's Blogger using Blogger API V3
 
 [ [DEMO](https://draculabin.blogspot.com/) ]
 
