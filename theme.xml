@@ -59,7 +59,7 @@
                               <a class='nav-link' expr:href='data:blog.homepageUrl + &quot;/p/about.html&quot;'>About</a>
                           </li>
                           <li class='nav-item'>
-                              <a class='nav-link' href='#'>Repo</a>
+                              <a class='nav-link' href='https://github.com/snoofox/BloggerBin'>Repo</a>
                           </li>
                           <li class='nav-item dropdown'>
                               <a aria-expanded='false' class='nav-link dropdown-toggle' data-bs-toggle='dropdown' href='#' role='button'>
