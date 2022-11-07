@@ -59,7 +59,7 @@
                               <a class='nav-link' expr:href='data:blog.homepageUrl + &quot;/p/about.html&quot;'>About</a>
                           </li>
                           <li class='nav-item'>
-                              <a class='nav-link' href='#'>Repo</a>
+                              <a class='nav-link' href='https://github.com/snoofox/BloggerBin'>Repo</a>
                           </li>
                           <li class='nav-item dropdown'>
                               <a aria-expanded='false' class='nav-link dropdown-toggle' data-bs-toggle='dropdown' href='#' role='button'>
@@ -377,7 +377,8 @@
                 function editFormFunction() {
                   const itemBody = document.getElementById(&quot;item-body&quot;);
                   const postTitle = &quot;<data:post.title/>&quot;
-                  itemBody.innerHTML = `<div class='form-group'>
+                  itemBody.innerHTML = `
+              	  <div class='form-group'>
                   <input class='form-control mb-4' id='formTitle' type='text' value='${postTitle}'/>
                   <h6 class='post-date card-subtitle mb-2 text-muted'><data:post.date/></h6>
                   <textarea autofocus='autofocus' class='form-control' id='formCode' rows='15' tabindex='1'/>
@@ -393,7 +394,7 @@
                       <button class='btn text-success' onclick='updatePaste()' type='button'><i aria-hidden='true' class='fa fa-floppy-o'/> Save</button>
                       <button class='btn text-danger' onclick='history.back()' type='button'><i aria-hidden='true' class='fa fa-backward'/> Back</button>
                   </div>
-                  <div id='hiddenSecretDiv'><data:post.id/></div></div>`
+                    <div id='hiddenSecretDiv'><data:post.id/></div></div>`
                 }
               </script>
           </b:includable>
@@ -535,65 +536,77 @@
           </b:includable>
           <b:includable id='post' var='post'>
             <b:if cond='data:blog.pageType == &quot;item&quot;'>
-						  <b:include name='keyAlertFunction'/>
+			    <b:include name='keyAlertFunction'/>
             </b:if>
-            <div class='post card mt-3'>
-              <div class='card-body' id='item-body'>
-                <b:if cond='data:blog.url == data:blog.homepageUrl'>
-                  <b:loop values='data:post.labels' var='label'>
+            <b:if cond='data:blog.url == data:blog.homepageUrl'>
+                <b:loop values='data:post.labels' var='label'>
                     <b:if cond='data:label.name == &quot;public&quot;'>
-                      <a expr:href='data:post.url'><h4 class='post-title card-title'><data:post.title/></h4></a>
-                      <h6 class='post-date card-subtitle mb-2 text-muted'><data:post.date/></h6>
-                      <a expr:href='data:post.url'>
-                        <p class='card-text'>
-                            <b:eval expr='data:post.snippets.long snippet {length: 100, linebreaks: false }'/>
-                        </p>
-                      </a>
-                      <a class='btn btn-dark mt-2 btn-sm' expr:href='data:post.url' style='color:white'>Read More</a>
+                        <div class='post card mt-3'>
+                            <div class='card-body' id='item-body'>
+                                <a expr:href='data:post.url'><h4 class='post-title card-title'><data:post.title/></h4></a>
+                                <h6 class='post-date card-subtitle mb-2 text-muted'><data:post.date/></h6>
+                                <a expr:href='data:post.url'>
+                                    <p class='card-text'>
+                                        <b:eval expr='data:post.snippets.long snippet {length: 100, linebreaks: false }'/>
+                                    </p>
+                                </a>
+                                <a class='btn btn-dark mt-2 btn-sm' expr:href='data:post.url' style='color:white'>Read More</a>
+                            </div>
+                        </div>
                     </b:if>
-                  </b:loop>
-                </b:if>
+                </b:loop>
+            </b:if>
 
-                <b:if cond='data:blog.pageType == &quot;index&quot;'>
-                    <b:if cond='data:blog.url != data:blog.homepageUrl'>
-                      <b:loop values='data:post.labels' var='label'>
+            <b:if cond='data:blog.pageType == &quot;index&quot;'>
+                <b:if cond='data:blog.url != data:blog.homepageUrl'>
+                    <b:loop values='data:post.labels' var='label'>
                         <b:if cond='data:label.name == &quot;public&quot;'>
-                            <a expr:href='data:post.url'><h4 class='post-title card-title'><data:post.title/></h4></a>
-                            <h6 class='post-date card-subtitle mb-2 text-muted'><data:post.date/></h6>
-                            <a expr:href='data:post.url'>
-                                <p class='card-text'>
-                                    <b:eval expr='data:post.snippets.long snippet {length: 100, linebreaks: false }'/>
-                                </p>
-                            </a>
-                            <a class='btn btn-dark mt-2 btn-sm' expr:href='data:post.url' style='color:white'>Read More</a>
+                            <div class='post card mt-3'>
+                                <div class='card-body' id='item-body'>
+                                    <a expr:href='data:post.url'><h4 class='post-title card-title'><data:post.title/></h4></a>
+                                    <h6 class='post-date card-subtitle mb-2 text-muted'><data:post.date/></h6>
+                                    <a expr:href='data:post.url'>
+                                        <p class='card-text'>
+                                            <b:eval expr='data:post.snippets.long snippet {length: 100, linebreaks: false }'/>
+                                        </p>
+                                    </a>
+                                    <a class='btn btn-dark mt-2 btn-sm' expr:href='data:post.url' style='color:white'>Read More</a>
+                                </div>
+                            </div>
                         </b:if>
-                      </b:loop>
-                    </b:if>
+                    </b:loop>
                 </b:if>
+            </b:if>
 
-                <b:if cond='data:blog.pageType == &quot;item&quot;'>
-                    <h3 class='entry-title card-title'><data:post.title/></h3>
-                    <h6 class='entry-date card-subtitle mb-2 text-muted'><data:post.date/></h6>
-                    <div class='mt-3'><b:include data='post' name='postBody'/></div>
-                    <div class='btn-group mt-3' role='group'>
-                        <button class='btn text-danger' onclick='deleteFormFunction()'>
-                            <i aria-hidden='true' class='fa fa-trash'/> Delete
-                        </button>
-                        <button class='btn text-primary' onclick='editFormFunction()'>
-                            <i aria-hidden='true' class='fa fa-pencil'/> Edit
-                        </button>
+            <b:if cond='data:blog.pageType == &quot;item&quot;'>
+                <div class='post card mt-3'>
+                    <div class='card-body' id='item-body'>
+                        <h3 class='entry-title card-title'><data:post.title/></h3>
+                        <h6 class='entry-date card-subtitle mb-2 text-muted'><data:post.date/></h6>
+                        <div class='mt-3'><b:include data='post' name='postBody'/></div>
+                        <div class='btn-group mt-3' role='group'>
+                            <button class='btn text-danger' onclick='deleteFormFunction()'>
+                                <i aria-hidden='true' class='fa fa-trash'/> Delete
+                            </button>
+                            <button class='btn text-primary' onclick='editFormFunction()'>
+                                <i aria-hidden='true' class='fa fa-pencil'/> Edit
+                            </button>
+                        </div>
+                        <b:include name='deleteFunction'/>
+                        <b:include name='editFunctions'/>
                     </div>
-                    <b:include name='deleteFunction'/>
-                    <b:include name='editFunctions'/>
-                </b:if>
+                </div>
+            </b:if>
 
-                <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
-                    <h3 class='entry-title card-title'><data:post.title/></h3>
-                    <h6 class='entry-date card-subtitle mb-2 text-muted'><data:post.date/></h6>
-                    <div class='mt-3'><b:include data='post' name='postBody'/></div>
-                </b:if>
-              </div>
-            </div>
+            <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
+                <div class='post card mt-3'>
+                    <div class='card-body' id='item-body'>
+                        <h3 class='entry-title card-title'><data:post.title/></h3>
+                        <h6 class='entry-date card-subtitle mb-2 text-muted'><data:post.date/></h6>
+                        <div class='mt-3'><b:include data='post' name='postBody'/></div>
+                    </div>
+                </div>
+            </b:if>
           </b:includable>
           <b:includable id='postAuthor'>
             <span class='byline post-author vcard'>
