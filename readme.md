@@ -2,7 +2,7 @@
 
 Anonymous self hosted pastebin like service built upon Google's Blogger using Blogger API V3
 
-[ [DEMO](https://draculabin.blogspot.com/) ]
+[ [DEMO](https://draculabin.blogspot.com/) ] [ [DOCUMENTATION](https://draculabin.blogspot.com/p/documentation.html) ]
 
 
 ![alt BloggerBin](https://i.postimg.cc/NML6Rkf7/Blogger-Bin.png)
@@ -15,9 +15,15 @@ Anonymous self hosted pastebin like service built upon Google's Blogger using Bl
 - Free of cost
 - API
 
+
+## Known Limitations
+- 10,000 request (list/search/get) per day; with the limit of 100 request per 100 seconds
+
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
 
 ## Built With
 
