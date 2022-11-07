@@ -364,7 +364,7 @@
                     <button class='btn text-danger' onclick='deletePaste()'>
                         <i aria-hidden='true' class='fa fa-trash'/> Delete
                     </button>
-                    <button class='btn text-primary' onclick='history.back()'>
+                    <button class='btn text-primary' onclick='location.reload()'>
                         <i aria-hidden='true' class='fa fa-backward'/> Back
                     </button>
                     <div id='hiddenSecretDiv'><data:post.id/></div>
@@ -392,7 +392,7 @@
                   </div>
                   <div class='btn-group mt-3'>
                       <button class='btn text-success' onclick='updatePaste()' type='button'><i aria-hidden='true' class='fa fa-floppy-o'/> Save</button>
-                      <button class='btn text-danger' onclick='history.back()' type='button'><i aria-hidden='true' class='fa fa-backward'/> Back</button>
+                      <button class='btn text-danger' onclick='location.reload()' type='button'><i aria-hidden='true' class='fa fa-backward'/> Back</button>
                   </div>
                     <div id='hiddenSecretDiv'><data:post.id/></div></div>`
                 }
@@ -896,7 +896,7 @@
       </footer>
 
       <script type='text/javascript'>
-        const ENDPOINT = &quot;https://shoto237.pythonanywhere.com/api/&quot;;
+        const ENDPOINT = &quot; YOUR API ENDPOINT HERE &quot;;
         const alertSection = document.getElementById(&#39;alert-section&#39;);
 
         function requestFunction(data, method) {
